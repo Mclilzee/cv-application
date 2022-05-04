@@ -6,7 +6,7 @@ export default function EditableText(props) {
         if (props.data.isSelected) {
             return <input type={"text"} value={props.text} name={"props"}/>;
         } else {
-            return <div className={props.className}>{props.data.text}</div>;
+            return <div className={props.className} id={props.data.id}>{props.data.text}</div>;
         }
     }
 

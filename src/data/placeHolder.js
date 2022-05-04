@@ -1,37 +1,47 @@
+import uniqid from "uniqid"
+
+
 const nameData = {
     text: "Chicken Nuggets",
-    isSelected: false
+    isSelected: false,
+    id: uniqid()
 }
 
 const generalInformationData = [
     {
         personalTitle: {
             text: "Address :",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         },
         personalDetail: {
             text: "Hallway Street 231",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         }
     },
     {
         personalTitle: {
             text: "Phone :",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         },
         personalDetail: {
             text: "238729031",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         }
     },
     {
         personalTitle: {
             text: "E-mail :",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         },
         personalDetail: {
             text: "someEmail@hotmail.com",
-            isSelected: false
+            isSelected: false,
+            id: uniqid()
         }
     }
 ]
