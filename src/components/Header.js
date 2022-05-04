@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../assets/images/photo-placeholder.jpg"
 import PersonalDetail from "./PersonalDetail";
+import addButton from "../assets/buttons/add-button.svg"
 
 export default function Header(props) {
 
@@ -31,7 +32,7 @@ export default function Header(props) {
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 {details}
-                <button>+</button>
+                <img src={addButton} alt={"add button"}/>
             </div>
             <div className={"line-break"}/>
         </div>

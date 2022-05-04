@@ -61,18 +61,8 @@ code {
 
 }
 
-.personal-information > button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    width: 14px;
-    height: 14px;
-    border-radius: 2px;
-    background-color: #3E75C8;
-    border: none;
-
+.personal-information > img {
+    margin-top: 2px;
 }
 
 .personal-detail {
