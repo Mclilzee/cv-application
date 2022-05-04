@@ -63,6 +63,7 @@ code {
 
 .personal-information > img {
     margin-top: 2px;
+    cursor: pointer;
 }
 
 .personal-detail {
