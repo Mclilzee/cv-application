@@ -19,17 +19,30 @@ function App() {
                 return;
             }
 
-            setFullName(prevName => {
-                return prevName.id === event.target.id ?
-                    {...prevName, isSelected: true} :
-                    {...prevName}
+            const eventId = event.target.id;
+
+            setFullName((prevName) => {
+                return {...prevName, isSelected: prevName.id === eventId}
             })
 
-            console.log(fullName)
+            setPersonalData(prevArray => {
+                return prevArray.map(({personalTitle, personalDetail}) => {
+
+                    return {
+                        personalTitle: {...personalTitle, isSelected: personalTitle.id === eventId},
+                        personalDetail: {...personalDetail, isSelected: personalDetail.id === eventId}
+                    }
+
+                })
+            })
+
+
         }
 
         return (() => {
-            document.body.removeEventListener("click", toggleEditMode)
+            document.removeEventListener("click", toggleEditMode)
+            document.removeEventListener("keypress", toggleEditMode)
+
         })
     }, [fullName])
 
