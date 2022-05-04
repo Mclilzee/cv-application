@@ -10,7 +10,7 @@ const nameData = {
 const generalInformationData = [
     {
         personalTitle: {
-            text: "Address :",
+            text: "Address:",
             isSelected: false,
             id: uniqid()
         },

@@ -52,7 +52,9 @@ code {
     font-weight: bold;
     font-size: 20px;
     width: 240px;
+    font-family: Inter, serif;
 }
+
 
 .personal-information {
     padding-top: 10px;
@@ -69,10 +71,16 @@ code {
 .personal-detail {
     display: grid;
     grid-template: 1fr / 80px 1fr;
+    gap: 10px;
+    align-items: end;
+}
+
+.personal-detail > .detail,
+.personal-detail > .title {
     font-size: 12px;
     font-family: Inter, serif;
     font-weight: 400;
-    line-height: 15px;
+    line-height: 18px;
     letter-spacing: 0.03rem;
 }
 
@@ -81,5 +89,9 @@ code {
     border-bottom: 2px solid black;
 }
 
-
+input {
+    border: hidden;
+    box-shadow: 1px 1px 2px rgb(0, 0, 0);
+    padding: 0 0 0 3px;
+}
 

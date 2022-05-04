@@ -10,12 +10,11 @@ function App() {
 
     React.useEffect(() => {
         document.addEventListener("click", toggleEditMode)
-        document.addEventListener("keypress", toggleEditMode)
+        document.addEventListener("keydown", toggleEditMode)
 
         function toggleEditMode(event) {
             event.stopPropagation()
-
-            if (event.type === "keypress" && event.code !== "Enter") {
+            if (event.type === "keydown" && event.key !== "Escape") {
                 return;
             }
 

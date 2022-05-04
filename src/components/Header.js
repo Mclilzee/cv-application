@@ -6,8 +6,8 @@ import addButton from "../assets/buttons/add-button.svg"
 
 export default function Header({fullName, personalData}) {
 
-    const details = personalData.map(item => {
-        return <PersonalDetail title={item.personalTitle} detail={item.personalDetail}/>
+    const details = personalData.map((item) => {
+        return <PersonalDetail key={item.personalTitle.id} title={item.personalTitle} detail={item.personalDetail}/>
     })
 
     return (
