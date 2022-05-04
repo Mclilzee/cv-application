@@ -1,34 +1,18 @@
 import React from "react";
+import EditableText from "./EditableText";
 import Image from "../assets/images/photo-placeholder.jpg"
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
 
-export default function Header(props) {
+export default function Header({fullName, personalData}) {
 
-    const [personalDetail, setPersonalDetail] = React.useState(() => {
-        return [
-            {
-                title: "Address :",
-                detail: "Fried street 22"
-            },
-            {
-                title: "Phone :",
-                detail: "2032323"
-            },
-            {
-                title: "E-mail :",
-                detail: "eating.monster@gobbler.dip"
-            }
-        ]
-    })
-
-    const details = personalDetail.map(item => {
-        return <PersonalDetail title={item.title} detail={item.detail}/>
+    const details = personalData.map(item => {
+        return <PersonalDetail title={item.personalTitle} detail={item.personalDetail}/>
     })
 
     return (
         <div className="header">
-            <div className="fullName">{"Chicken Nugget"}</div>
+            <EditableText className="fullName" data={fullName}/>
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 {details}
