@@ -12,12 +12,17 @@ export default function EditableText(props) {
         setIsSelected(false);
     }
 
+    function handleChange(event) {
+        props.onChange(event.target.value, props.index);
+    }
+
     function getInputType() {
         if (isSelected) {
-            return <input autoFocus={true} onBlur={handleBlur} className={props.className} type={"text"} value={props.data.text} id={props.data.id}
-                          name={"inputText"}/>;
+            return <input onChange={handleChange} autoFocus={true} onBlur={handleBlur} className={props.className}
+                          type={"text"} value={props.text}/>;
         } else {
-            return <div onClick={handleClick} onBlur={handleBlur} className={props.className} id={props.data.id}>{props.data.text}</div>;
+            return <div onClick={handleClick} onBlur={handleBlur} className={props.className}
+            >{props.text}</div>;
         }
     }
 

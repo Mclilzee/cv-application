@@ -51,7 +51,7 @@ code {
     border-bottom: 1px solid black;
     font-weight: bold;
     font-size: 20px;
-    width: 240px;
+    max-width: 240px;
     font-family: Inter, serif;
 }
 

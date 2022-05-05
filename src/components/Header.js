@@ -4,18 +4,21 @@ import Image from "../assets/images/photo-placeholder.jpg"
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
 
-export default function Header({fullName, personalData}) {
+export default function Header(props) {
 
-    const details = personalData.map((item) => {
-        return <PersonalDetail key={item.personalTitle.id} title={item.personalTitle} detail={item.personalDetail}/>
-    })
+    const [fullName, setFullName] = React.useState(() => "Joe Shmoe");
+
+
+    function handleNameChange(text, index) {
+        setFullName(text);
+    }
 
     return (
         <div className="header">
-            <EditableText className="fullName" data={fullName}/>
+            <EditableText onChange={handleNameChange} className="fullName" text={fullName}/>
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
-                {details}
+                <PersonalDetail/>
                 <img src={addButton} alt={"add button"}/>
             </div>
             <div className={"line-break"}/>
