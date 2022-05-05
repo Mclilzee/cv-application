@@ -1,5 +1,4 @@
 import React from "react";
-import EditableText from "./EditableText";
 
 export default function PersonalDetail(props) {
 
@@ -18,19 +17,14 @@ export default function PersonalDetail(props) {
         }
     ]);
 
-    function handleTitle(text, index) {
-        setPersonalData(prevData => {
-            return prevData.map((item, itemIndex) => {
-                return itemIndex === index ? {...item, title: text} :
-                    {...item}
-            })
-        })
-    }
+    function handleChange(event) {
+        const index = event.target.id;
+        const text = event.target.textContent;
+        const type = event.target.className;
 
-    function handleDetail(text, index) {
         setPersonalData(prevData => {
             return prevData.map((item, itemIndex) => {
-                return itemIndex === index ? {...item, detail: text} :
+                return itemIndex === index ? {...item, [type]: text} :
                     {...item}
             })
         })
@@ -38,9 +32,9 @@ export default function PersonalDetail(props) {
 
 
     const informationArray = personalData.map((item, index) => {
-        return <div key={index} className={"personal-detail"}>
-            <EditableText index={index} onChange={handleTitle} className={"title"} text={item.title}/>
-            <EditableText index={index} onChange={handleDetail} className={"detail"} text={item.detail}/>
+        return <div className={"personal-detail"}>
+            <div contentEditable id={index} onInput={handleChange} className={"title"}>{item.title}</div>
+            <div contentEditable id={index} onInput={handleChange} className={"detail"}>{item.detail}</div>
         </div>
     })
 

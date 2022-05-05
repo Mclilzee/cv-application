@@ -33,7 +33,7 @@ code {
 .header {
     padding: 18px 15px;
     display: grid;
-    grid-template: 70px 1fr 25px / 300px 1fr;
+    grid-template: auto 1fr 25px / 300px 1fr;
 }
 
 .header > img {
@@ -87,9 +87,5 @@ code {
 .header > .line-break {
     grid-column: span 2;
     border-bottom: 2px solid black;
-}
-
-input {
-    border: hidden;
 }
 

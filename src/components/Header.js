@@ -1,5 +1,4 @@
 import React from "react";
-import EditableText from "./EditableText";
 import Image from "../assets/images/photo-placeholder.jpg"
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
@@ -9,13 +8,14 @@ export default function Header(props) {
     const [fullName, setFullName] = React.useState(() => "Joe Shmoe");
 
 
-    function handleNameChange(text, index) {
-        setFullName(text);
+    function handleNameChange(event) {
+        const newName = event.target.textContent;
+        setFullName(newName);
     }
 
     return (
         <div className="header">
-            <EditableText onChange={handleNameChange} className="fullName" text={fullName}/>
+            <div contentEditable onInput={handleNameChange} className="fullName">{fullName}</div>
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 <PersonalDetail/>
