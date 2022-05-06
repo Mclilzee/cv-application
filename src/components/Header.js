@@ -5,17 +5,17 @@ import addButton from "../assets/buttons/add-button.svg"
 
 export default function Header(props) {
 
-    const [fullName, setFullName] = React.useState(() => "Joe Shmoe");
+    const [fullName, setFullName] = React.useState(() => "");
 
 
     function handleNameChange(event) {
-        const newName = event.target.textContent;
-        setFullName(newName);
+        let newName = event.target.value;
+        setFullName(newName)
     }
 
     return (
         <div className="header">
-            <div contentEditable onInput={handleNameChange} className="fullName">{fullName}</div>
+            <input placeholder={"Full Name"} onChange={handleNameChange} className="fullName" value={fullName}/>
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 <PersonalDetail/>

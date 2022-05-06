@@ -89,3 +89,12 @@ code {
     border-bottom: 2px solid black;
 }
 
+input {
+    border: hidden;
+}
+
+input:focus {
+    z-index: 2;
+}
+
+

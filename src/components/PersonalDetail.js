@@ -18,8 +18,8 @@ export default function PersonalDetail(props) {
     ]);
 
     function handleChange(event) {
-        const index = event.target.id;
-        const text = event.target.textContent;
+        const index = Number(event.target.id);
+        const text = event.target.value;
         const type = event.target.className;
 
         setPersonalData(prevData => {
@@ -32,9 +32,9 @@ export default function PersonalDetail(props) {
 
 
     const informationArray = personalData.map((item, index) => {
-        return <div className={"personal-detail"}>
-            <div contentEditable id={index} onInput={handleChange} className={"title"}>{item.title}</div>
-            <div contentEditable id={index} onInput={handleChange} className={"detail"}>{item.detail}</div>
+        return <div id={index} className={"personal-detail"}>
+            <input placeholder={"Title"} id={index} onChange={handleChange} className={"title"} value={item.title}/>
+            <input placeholder={"Detail"} id={index} onChange={handleChange} className={"detail"} value={item.detail}/>
         </div>
     })
 
