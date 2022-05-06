@@ -2,7 +2,12 @@ import React from "react";
 
 export default function EditableText(props) {
 
-    const [isSelected, setIsSelected] = React.useState(false);
+    const [isSelected, setIsSelected] = React.useState(() => false);
+    const [containsText, setContainsText] = React.useState(() => false);
+
+    React.useEffect(() => {
+        setContainsText(props.text.length > 0);
+    }, [props.text])
 
     function handleClick() {
         setIsSelected(true);
@@ -12,12 +17,17 @@ export default function EditableText(props) {
         setIsSelected(false);
     }
 
+    const style = {
+        color: props.text.length
+    }
+
     function getInputType() {
         if (isSelected) {
-            return <input autoFocus={true} onBlur={handleBlur} className={props.className} type={"text"} value={props.data.text} id={props.data.id}
-                          name={"inputText"}/>;
+            return <input autoFocus={true} onChange={props.onChange} onBlur={handleBlur} className={props.className}
+                          type={"text"} value={props.text} placeholder={props.placeholder}/>;
         } else {
-            return <div onClick={handleClick} onBlur={handleBlur} className={props.className} id={props.data.id}>{props.data.text}</div>;
+            return <div onClick={handleClick} onBlur={handleBlur}
+                        className={props.className}>{props.text.length > 0 ? props.text : props.placeholder}</div>;
         }
     }
 

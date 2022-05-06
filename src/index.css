@@ -34,7 +34,7 @@ code {
 .header {
     padding: 18px 15px;
     display: grid;
-    grid-template: auto 1fr 25px / 3fr 2fr;
+    grid-template: auto 1fr 10px / 3fr 2fr;
 }
 
 .header > img {
@@ -91,8 +91,13 @@ code {
     max-width: 100%;
 }
 
+.personal-detail > .detail {
+    margin-right: 2px;
+}
+
 .personal-detail > .title {
-    padding-right: 10px;
+    margin-right: 10px;
+    margin-left: 3px;
 }
 
 
@@ -103,6 +108,7 @@ code {
 
 input {
     border: hidden;
+    padding: 0;
 }
 
 input:focus {
