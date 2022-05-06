@@ -28,11 +28,11 @@ code {
 }
 
 .paper {
-    padding: 15px;
+    padding: 30px;
 }
 
 .header {
-    padding: 18px 15px;
+    margin-bottom: 10px;
     display: grid;
     grid-template: auto 1fr 10px / 3fr 2fr;
 }
@@ -116,13 +116,16 @@ input:focus {
 }
 
 section {
-
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 10px;
 }
 
 .title-container {
     display: flex;
     gap: 4px;
     align-items: center;
+    grid-column: span 2;
 }
 
 .title-container > .delete-button {
@@ -135,6 +138,25 @@ section {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
+.subsection-container {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: auto 200px 1fr;
+    align-items: center;
+    gap: 5px;
+}
+
+.subsection-container > .delete-button {
+    max-width: 12px;
+    cursor: pointer;
+}
+
+.subsection-container > .detail {
+    grid-column: 3;
+    max-width: 80%;
+}
+
 
 @media print {
     @page {

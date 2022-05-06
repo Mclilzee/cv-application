@@ -8,13 +8,13 @@ export default function Main(props) {
     });
 
 
-    function handleClick() {
+    function handleAddSectionButton() {
         setSectionsArray(prevState => {
             return [...prevState, ""]
         })
     }
 
-    function handleChange(event, index) {
+    function handleSectionNameChange(event, index) {
         const text = event.target.value;
         setSectionsArray(prevState => {
             return prevState.map((item, itemIndex) => {
@@ -23,14 +23,23 @@ export default function Main(props) {
         })
     }
 
+    function handleSectionDeleteButton(index) {
+        setSectionsArray(prevState => {
+            return prevState.filter((item, itemIndex) => {
+                return index !== itemIndex;
+            })
+        })
+    }
+
     const sectionsData = sectionsArray.map((item, index) => {
-        return <Section onChange={handleChange} key={index} index={index} text={item}/>
+        return <Section onDeleteButtonClick={handleSectionDeleteButton} onChange={handleSectionNameChange} key={index}
+                        index={index} text={item}/>
     })
 
     return (
         <div className={"sections-container"}>
             {sectionsData}
-            <button onClick={handleClick} className={"add-section"}>Add Section</button>
+            <button onClick={handleAddSectionButton} className={"add-section"}>Add Section</button>
         </div>
 
     )

@@ -25,6 +25,10 @@ export default function Section(props) {
         setDisplayDeleteSectionButton(false)
     }
 
+    function handleDeleteButtonClick() {
+        props.onDeleteButtonClick(props.index);
+    }
+
     function handleAddSectionButton() {
         setSubsectionsArray(prevState => {
             const newObject = {
@@ -51,12 +55,17 @@ export default function Section(props) {
         })
     }
 
-    function handleMouseOverTitle() {
-
+    function handleSubSectionDeleteButton(index) {
+        setSubsectionsArray(prevState => {
+            return prevState.filter((item, itemIndex) => {
+                return index !== itemIndex;
+            })
+        })
     }
 
     const subSectionsData = subSectionsArray.map((item, index) => {
-        return <SubSection onChange={handleSubsectionChange}
+        return <SubSection onDelete={handleSubSectionDeleteButton}
+                           onChange={handleSubsectionChange}
                            key={index}
                            index={index}
                            date={item.date}
@@ -65,20 +74,19 @@ export default function Section(props) {
         />
     })
 
-    const deletebuttonStyle = {
+    const deleteButtonStyle = {
         visibility: displayDeleteSectionButton ? "" : "hidden"
     }
 
     return (
         <section>
             <div onMouseOver={handleMouseOverEvent} onMouseOut={handleMouseOutEvent} className={"title-container"}>
-                <img style={deletebuttonStyle} className={"delete-button"} src={deleteButton} alt={"delete button"}/>
+                <img onClick={handleDeleteButtonClick} style={deleteButtonStyle} className={"delete-button"}
+                     src={deleteButton} alt={"delete button"}/>
                 <EditableText placeholder={"Header"} className={"title"} onChange={handleSectionTitleChange}
                               text={props.text}/>
             </div>
-            <div className={"container"}>
-                {subSectionsData}
-            </div>
+            {subSectionsData}
             <button className={"add-subsection"} onClick={handleAddSectionButton}>Add subsection</button>
         </section>
     )
