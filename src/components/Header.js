@@ -63,7 +63,7 @@ export default function Header(props) {
 
     return (
         <div className="header">
-            <EditableText placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
+            <EditableText type={"text"} placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
                           text={fullName}/>
             <img className="profile-picture" src={Image} alt={"person"}/>
             <div className={"personal-information"}>

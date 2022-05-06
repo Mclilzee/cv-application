@@ -2,7 +2,7 @@ import React from "react";
 
 export default function EditableText(props) {
 
-    const [isSelected, setIsSelected] = React.useState(() => false);
+    const [notSelected, setNotSelected] = React.useState(() => true);
     const [containsText, setContainsText] = React.useState(() => false);
 
     React.useEffect(() => {
@@ -10,11 +10,11 @@ export default function EditableText(props) {
     }, [props.text])
 
     function handleClick() {
-        setIsSelected(true);
+        setNotSelected(false);
     }
 
     function handleBlur() {
-        setIsSelected(false);
+        setNotSelected(true);
     }
 
     const style = {
@@ -22,12 +22,26 @@ export default function EditableText(props) {
     }
 
     function getInputType() {
-        if (isSelected) {
-            return <input autoFocus={true} onChange={props.onChange} onBlur={handleBlur} className={props.className}
-                          type={"text"} value={props.text} placeholder={props.placeholder}/>;
-        } else {
+        if (notSelected) {
             return <div style={style} onClick={handleClick} onBlur={handleBlur}
                         className={props.className}>{props.text.length > 0 ? props.text : props.placeholder}</div>;
+        } else if (props.type === "textarea") {
+            return <textarea
+                autoFocus={true}
+                onChange={props.onChange}
+                onBlur={handleBlur}
+                className={props.className}
+                value={props.text}
+                placeholder={props.placeholder}/>;
+        } else {
+            return <input
+                autoFocus={true}
+                onChange={props.onChange}
+                onBlur={handleBlur}
+                className={props.className}
+                type={props.type}
+                value={props.text}
+                placeholder={props.placeholder}/>;
         }
     }
 

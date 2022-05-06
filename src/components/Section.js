@@ -83,7 +83,7 @@ export default function Section(props) {
             <div onMouseOver={handleMouseOverEvent} onMouseOut={handleMouseOutEvent} className={"title-container"}>
                 <img onClick={handleDeleteButtonClick} style={deleteButtonStyle} className={"delete-button"}
                      src={deleteButton} alt={"delete button"}/>
-                <EditableText placeholder={"Header"} className={"title"} onChange={handleSectionTitleChange}
+                <EditableText type={"text"} placeholder={"Header"} className={"title"} onChange={handleSectionTitleChange}
                               text={props.text}/>
             </div>
             {subSectionsData}

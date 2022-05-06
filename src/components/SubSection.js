@@ -16,11 +16,12 @@ export default function SubSection(props) {
         <div className={"subsection-container"}>
             <img onClick={handleDeleteButtonClick} className={"delete-button"} src={deleteButton}
                  alt={"delete button"}/>
-            <EditableText placeholder="Date Information" onChange={handleChange} className={"date"} text={props.date}/>
-            <EditableText placeholder="Title Information" onChange={handleChange} className={"title"}
+            <EditableText type={"text"} placeholder="Date Information" onChange={handleChange} className={"date"} text={props.date}/>
+            <EditableText type={"text"} placeholder="Title Information" onChange={handleChange} className={"title"}
                           text={props.title}/>
-            <textarea placeholder="Explain in details" onChange={handleChange} className={"detail"}
-                      value={props.detail}/>
+            <EditableText type={"textarea"} placeholder="Explain in details" onChange={handleChange}
+                          className={"detail"}
+                          text={props.detail}/>
         </div>
     )
 }
