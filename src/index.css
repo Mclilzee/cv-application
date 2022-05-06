@@ -117,7 +117,7 @@ input:focus {
 
 @media print {
     @page {
-        size: A5;
+        size: A4;
     }
 }
 
