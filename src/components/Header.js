@@ -15,7 +15,8 @@ export default function Header(props) {
 
     return (
         <div className="header">
-            <input placeholder={"Full Name"} onChange={handleNameChange} className="fullName" value={fullName}/>
+            <input type="text" placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
+                   value={fullName}/>
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 <PersonalDetail/>

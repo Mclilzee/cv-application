@@ -5,15 +5,15 @@ export default function PersonalDetail(props) {
     const [personalData, setPersonalData] = React.useState(() => [
         {
             title: "Address",
-            detail: "Hallway Street 231",
+            detail: "Berlin Str. 221",
         },
         {
             title: "Phone :",
-            detail: "238729031"
+            detail: "+49 153 232212"
         },
         {
             title: "E-mail :",
-            detail: "someEmail@hotmail.com"
+            detail: "example@hotmail.com"
         }
     ]);
 
