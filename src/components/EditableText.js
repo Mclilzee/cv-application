@@ -18,7 +18,7 @@ export default function EditableText(props) {
     }
 
     const style = {
-        color: props.text.length
+        color: containsText ? "" : "gray"
     }
 
     function getInputType() {
@@ -26,7 +26,7 @@ export default function EditableText(props) {
             return <input autoFocus={true} onChange={props.onChange} onBlur={handleBlur} className={props.className}
                           type={"text"} value={props.text} placeholder={props.placeholder}/>;
         } else {
-            return <div onClick={handleClick} onBlur={handleBlur}
+            return <div style={style} onClick={handleClick} onBlur={handleBlur}
                         className={props.className}>{props.text.length > 0 ? props.text : props.placeholder}</div>;
         }
     }

@@ -37,7 +37,7 @@ code {
     grid-template: auto 1fr 10px / 3fr 2fr;
 }
 
-.header > img {
+.header > .profile-picture {
     margin-left: auto;
     grid-column: 2;
     grid-row: span 2;
@@ -48,7 +48,7 @@ code {
 .fullName {
     margin: 0;
     padding-top: 34px;
-    padding-bottom: 9px;
+    padding-bottom: 5px;
     border-bottom: 1px solid black;
     font-weight: bold;
     font-size: 20px;
@@ -63,10 +63,10 @@ code {
     grid-column: 1;
 }
 
-.personal-information > img {
+.personal-information > .add-button {
     margin-top: 2px;
-    margin-left: 10px;
-    max-width: 15px;
+    margin-left: 15px;
+    max-width: 12px;
     cursor: pointer;
 }
 
@@ -85,7 +85,7 @@ code {
     overflow-wrap: break-word;
 }
 
-.personal-detail > img {
+.personal-detail > .delete-button {
     cursor: pointer;
     align-self: center;
     max-width: 100%;

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "../assets/images/photo-placeholder.jpg"
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
+import EditableText from "./EditableText";
 
 export default function Header(props) {
 
@@ -62,12 +63,12 @@ export default function Header(props) {
 
     return (
         <div className="header">
-            <input type="text" placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
-                   value={fullName}/>
-            <img src={Image} alt={"person"}/>
+            <EditableText placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
+                          text={fullName}/>
+            <img className="profile-picture" src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 {informationArray}
-                <img onClick={handleAddButton} src={addButton} alt={"add button"}/>
+                <img className="add-button" onClick={handleAddButton} src={addButton} alt={"add button"}/>
             </div>
             <div className={"line-break"}/>
         </div>

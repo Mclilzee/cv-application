@@ -29,7 +29,7 @@ export default function PersonalDetail(props) {
     return (
         <div onMouseOver={handleMouseEnter} onMouseOut={handleMouseOut}
              className={"personal-detail"}>
-            <img onClick={handleDelete} style={style} src={deleteButton} alt="delete button"/>
+            <img className="delete-button" onClick={handleDelete} style={style} src={deleteButton} alt="delete button"/>
             <EditableText placeholder={"Title"} onChange={handleChange} className={"title"} text={props.title}/>
             <EditableText placeholder={"Detail"} onChange={handleChange} className={"detail"} text={props.detail}/>
         </div>
