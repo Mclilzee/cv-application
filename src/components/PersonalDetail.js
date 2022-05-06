@@ -5,12 +5,20 @@ export default function PersonalDetail(props) {
 
     const [displayButton, setDisplayButton] = React.useState(false);
 
+    function handleChange(event) {
+        props.onChange(event, props.index);
+    }
+
     function handleMouseEnter() {
         setDisplayButton(true)
     }
 
     function handleMouseOut() {
         setDisplayButton(false)
+    }
+
+    function handleDelete() {
+        props.onDelete(props.index);
     }
 
     const style = {
@@ -20,9 +28,9 @@ export default function PersonalDetail(props) {
     return (
         <div onMouseOver={handleMouseEnter} onMouseOut={handleMouseOut}
              className={"personal-detail"}>
-            <img style={style} src={deleteButton} alt="delete button"/>
-            <input placeholder={"Title"} onChange={props.onChange} className={"title"} value={props.title}/>
-            <input placeholder={"Detail"} onChange={props.onChange} className={"detail"} value={props.detail}/>
+            <img onClick={handleDelete} style={style} src={deleteButton} alt="delete button"/>
+            <input placeholder={"Title"} onChange={handleChange} className={"title"} value={props.title}/>
+            <input placeholder={"Detail"} onChange={handleChange} className={"detail"} value={props.detail}/>
         </div>
     )
 }

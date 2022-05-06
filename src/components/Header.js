@@ -26,8 +26,7 @@ export default function Header(props) {
         setFullName(newName)
     }
 
-    function handleInformationChange(event) {
-        const index = Number(event.target.id);
+    function handleInformationChange(event, index) {
         const text = event.target.value;
         const type = event.target.className;
 
@@ -39,8 +38,25 @@ export default function Header(props) {
         })
     }
 
+    function onDelete(index) {
+        setPersonalData(prevData => {
+            return prevData.filter((item, itemIndex) => {
+                return index !== itemIndex;
+            })
+        })
+    }
+
+    function handleAddButton() {
+        const newInformation = {
+            title: "",
+            detail: ""
+        }
+
+        setPersonalData(prevState => [...prevState, newInformation])
+    }
+
     const informationArray = personalData.map((item, index) => {
-        return <PersonalDetail index={index} title={item.title} detail={item.detail}
+        return <PersonalDetail key={index} onDelete={onDelete} index={index} title={item.title} detail={item.detail}
                                onChange={handleInformationChange}/>
     })
 
@@ -51,7 +67,7 @@ export default function Header(props) {
             <img src={Image} alt={"person"}/>
             <div className={"personal-information"}>
                 {informationArray}
-                <img src={addButton} alt={"add button"}/>
+                <img onClick={handleAddButton} src={addButton} alt={"add button"}/>
             </div>
             <div className={"line-break"}/>
         </div>
