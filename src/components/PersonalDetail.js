@@ -1,46 +1,24 @@
 import React from "react";
+import deleteButton from "../assets/buttons/delete-button.svg"
 
 export default function PersonalDetail(props) {
 
-    const [personalData, setPersonalData] = React.useState(() => [
-        {
-            title: "Address",
-            detail: "Berlin Str. 221",
-        },
-        {
-            title: "Phone :",
-            detail: "+49 153 232212"
-        },
-        {
-            title: "E-mail :",
-            detail: "example@hotmail.com"
-        }
-    ]);
+    const [displayButton, setDisplayButton] = React.useState(false);
 
-    function handleChange(event) {
-        const index = Number(event.target.id);
-        const text = event.target.value;
-        const type = event.target.className;
-
-        setPersonalData(prevData => {
-            return prevData.map((item, itemIndex) => {
-                return itemIndex === index ? {...item, [type]: text} :
-                    {...item}
-            })
-        })
+    function handleMouseEnter() {
+        setDisplayButton(true)
     }
 
-
-    const informationArray = personalData.map((item, index) => {
-        return <div id={index} className={"personal-detail"}>
-            <input placeholder={"Title"} id={index} onChange={handleChange} className={"title"} value={item.title}/>
-            <input placeholder={"Detail"} id={index} onChange={handleChange} className={"detail"} value={item.detail}/>
-        </div>
-    })
+    function handleMouseOut() {
+        setDisplayButton(false)
+    }
 
     return (
-        <>
-            {informationArray}
-        </>
+        <div onMouseOver={handleMouseEnter} onMouseOut={handleMouseOut}
+             className={"personal-detail"}>
+            {displayButton && <img src={deleteButton} alt="delete button"/>}
+            <input placeholder={"Title"} onChange={props.onChange} className={"title"} value={props.title}/>
+            <input placeholder={"Detail"} onChange={props.onChange} className={"detail"} value={props.detail}/>
+        </div>
     )
 }

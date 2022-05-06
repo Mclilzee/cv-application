@@ -1,5 +1,4 @@
 
-
 * {
     box-sizing: border-box;
 }
@@ -62,7 +61,6 @@ code {
     padding-top: 10px;
     grid-row: 2;
     grid-column: 1;
-
 }
 
 .personal-information > img {
@@ -72,8 +70,7 @@ code {
 
 .personal-detail {
     display: grid;
-    grid-template: 1fr / 80px 1fr;
-    gap: 10px;
+    grid-template: 1fr / auto 80px 1fr;
     align-items: end;
 }
 
@@ -85,6 +82,16 @@ code {
     line-height: 18px;
     letter-spacing: 0.03rem;
 }
+
+.personal-detail > img {
+    align-self: center;
+    max-width: 100%;
+}
+
+.personal-detail > .title {
+    padding-right: 10px;
+}
+
 
 .header > .line-break {
     grid-column: span 2;
