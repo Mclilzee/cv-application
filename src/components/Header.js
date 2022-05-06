@@ -8,7 +8,7 @@ export default function Header(props) {
     const [fullName, setFullName] = React.useState(() => "");
     const [personalData, setPersonalData] = React.useState(() => [
         {
-            title: "Address",
+            title: "Address :",
             detail: "Berlin Str. 221",
         },
         {

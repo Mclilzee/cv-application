@@ -13,10 +13,14 @@ export default function PersonalDetail(props) {
         setDisplayButton(false)
     }
 
+    const style = {
+        visibility: displayButton ? "visible" : "hidden"
+    }
+
     return (
         <div onMouseOver={handleMouseEnter} onMouseOut={handleMouseOut}
              className={"personal-detail"}>
-            {displayButton && <img src={deleteButton} alt="delete button"/>}
+            <img style={style} src={deleteButton} alt="delete button"/>
             <input placeholder={"Title"} onChange={props.onChange} className={"title"} value={props.title}/>
             <input placeholder={"Detail"} onChange={props.onChange} className={"detail"} value={props.detail}/>
         </div>
