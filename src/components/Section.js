@@ -1,6 +1,7 @@
 import React from "react";
 import SubSection from "./SubSection";
 import EditableText from "./EditableText";
+import deleteButton from "../assets/buttons/delete-button.svg"
 
 export default function Section(props) {
 
@@ -14,7 +15,17 @@ export default function Section(props) {
         ]
     })
 
-    function handleClick() {
+    const [displayDeleteSectionButton, setDisplayDeleteSectionButton] = React.useState(() => false);
+
+    function handleMouseOverEvent() {
+        setDisplayDeleteSectionButton(true);
+    }
+
+    function handleMouseOutEvent() {
+        setDisplayDeleteSectionButton(false)
+    }
+
+    function handleAddSectionButton() {
         setSubsectionsArray(prevState => {
             const newObject = {
                 date: "112 - 2016",
@@ -25,7 +36,7 @@ export default function Section(props) {
         })
     }
 
-    function handleChange(event) {
+    function handleSectionTitleChange(event) {
         props.onChange(event, props.index);
     }
 
@@ -40,6 +51,10 @@ export default function Section(props) {
         })
     }
 
+    function handleMouseOverTitle() {
+
+    }
+
     const subSectionsData = subSectionsArray.map((item, index) => {
         return <SubSection onChange={handleSubsectionChange}
                            key={index}
@@ -50,13 +65,21 @@ export default function Section(props) {
         />
     })
 
+    const deletebuttonStyle = {
+        visibility: displayDeleteSectionButton ? "" : "hidden"
+    }
+
     return (
         <section>
-            <EditableText placeholder={"Header"} className={"section-title"} onChange={handleChange} text={props.text}/>
-            <div className={"subsections-container"}>
+            <div onMouseOver={handleMouseOverEvent} onMouseOut={handleMouseOutEvent} className={"title-container"}>
+                <img style={deletebuttonStyle} className={"delete-button"} src={deleteButton} alt={"delete button"}/>
+                <EditableText placeholder={"Header"} className={"title"} onChange={handleSectionTitleChange}
+                              text={props.text}/>
+            </div>
+            <div className={"container"}>
                 {subSectionsData}
             </div>
-            <button className={"add-subsection"} onClick={handleClick}>Add subsection</button>
+            <button className={"add-subsection"} onClick={handleAddSectionButton}>Add subsection</button>
         </section>
     )
 }
