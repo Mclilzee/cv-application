@@ -1,7 +1,6 @@
 import Header from "./components/Header"
 import React from "react";
 import Main from "./components/Main";
-import placeHolderImage from "./assets/images/photo-placeholder.jpg"
 
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
 
         function blurInputs() {
             const inputs = document.querySelectorAll("input");
-            inputs.forEach(input => input.blur())
+            inputs.forEach(input => input.type !== "url" ? input.blur() : "")
         }
 
         document.addEventListener("keydown", handleKeyPress);
@@ -37,7 +36,7 @@ function App() {
 
     return (
         <div className="paper">
-            <Header imageURL={placeHolderImage}/>
+            <Header/>
             <Main/>
         </div>
     );

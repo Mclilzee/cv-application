@@ -2,6 +2,7 @@ import React from "react";
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
 import EditableText from "./EditableText";
+import Picture from "./Picture";
 
 export default function Header(props) {
 
@@ -64,7 +65,7 @@ export default function Header(props) {
         <div className="header">
             <EditableText type={"text"} placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
                           text={fullName}/>
-            <img className={"profile-picture"} src={props.imageURL} alt={"person"}/>
+            <Picture />
             <div className={"personal-information"}>
                 {informationArray}
                 <img className="add-button" onClick={handleAddButton} src={addButton} alt={"add button"}/>
