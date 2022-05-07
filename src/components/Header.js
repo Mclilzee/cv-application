@@ -65,7 +65,10 @@ export default function Header(props) {
         <div className="header">
             <EditableText type={"text"} placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
                           text={fullName}/>
-            <img className="profile-picture" src={Image} alt={"person"}/>
+            <label form="image">
+                <input type="file" name="image" style={{display: "none"}}/>
+                <img className="profile-picture" src={Image} alt={"person"}/>
+            </label>
             <div className={"personal-information"}>
                 {informationArray}
                 <img className="add-button" onClick={handleAddButton} src={addButton} alt={"add button"}/>

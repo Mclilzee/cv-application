@@ -37,7 +37,8 @@ code {
     grid-template: auto 1fr 10px / 3fr 2fr;
 }
 
-.header > .profile-picture {
+.profile-picture {
+    cursor: pointer;
     margin-left: auto;
     grid-column: 2;
     grid-row: span 2;
@@ -115,6 +116,10 @@ input:focus {
     z-index: 2;
 }
 
+.sections-container {
+    display: grid;
+}
+
 section {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -181,13 +186,21 @@ section > .add-subsection {
     margin-bottom: 20px;
 }
 
-button {
+.add-section {
+    cursor: pointer;
+    background: #238A2D;
     font-family: Inter, serif;
-    border-radius: 8px;
+    border-radius: 12px;
     border: none;
-    padding: 3px;
+    padding: 5px;
     color: white;
     font-weight: bold;
+    margin-left: auto;
+}
+
+button:hover,
+img:hover:not(.profile-picture) {
+    transform: scale(110%);
 }
 
 
