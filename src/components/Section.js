@@ -95,7 +95,8 @@ export default function Section(props) {
                               text={props.text}/>
             </div>
             {subSectionsData}
-            <img src={addButton} className={"add-subsection"} onClick={handleAddSectionButton}/>
+            <img src={addButton} className={"add-subsection"} alt="add subsection button"
+                 onClick={handleAddSectionButton}/>
         </section>
     )
 }

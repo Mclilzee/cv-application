@@ -1,6 +1,7 @@
 import Header from "./components/Header"
 import React from "react";
 import Main from "./components/Main";
+import pdfIcon from "./assets/images/pdf-icon.svg"
 
 
 function App() {
@@ -36,7 +37,9 @@ function App() {
 
     return (
         <div className="paper">
-            <button className={"download-button"} onClick={() => window.print()}>Download</button>
+            <button className={"download-button"} onClick={() => window.print()}>Download <img src={pdfIcon}
+                                                                                               alt={"icon of pdf"}/>
+            </button>
             <Header/>
             <Main/>
         </div>

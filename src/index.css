@@ -22,11 +22,11 @@ code {
 
 #root {
     background-color: white;
-    min-height: 880px;
 }
 
 .paper {
     padding: 30px;
+    min-height: 880px;
 }
 
 .header {
@@ -208,6 +208,7 @@ section {
     gap: 4px;
     align-items: center;
     grid-column: span 2;
+    margin-top: 20px;
 }
 
 .title-container > .delete-button {
@@ -219,7 +220,6 @@ section {
     font-family: Inter, serif;
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 20px;
 }
 
 .subsection-container {
@@ -229,6 +229,7 @@ section {
     align-items: center;
     gap: 5px;
     padding-left: 30px;
+    margin-top: 20px;
 }
 
 .subsection-container > .delete-button {
@@ -275,10 +276,28 @@ section > .add-subsection {
 }
 
 button:hover,
-img:hover:not(.profile-picture) {
+img:hover:not(.profile-picture, .download-button > img) {
     transform: scale(110%);
 }
 
+.download-button {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    position: fixed;
+    top: 2%;
+    left: 23%;
+    border-radius: 8px;
+    border: none;
+    padding: 5px 15px;
+    font-family: Inter, serif;
+    font-weight: bold;
+    gap: 10px;
+}
+
+.download-button > img {
+    width: 25px;
+}
 
 @media print {
     button {
