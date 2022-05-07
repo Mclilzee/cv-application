@@ -2,6 +2,7 @@ import React from "react";
 import SubSection from "./SubSection";
 import EditableText from "./EditableText";
 import deleteButton from "../assets/buttons/delete-button.svg"
+import addButton from "../assets/buttons/add-button.svg"
 
 export default function Section(props) {
 
@@ -94,7 +95,7 @@ export default function Section(props) {
                               text={props.text}/>
             </div>
             {subSectionsData}
-            <button className={"add-subsection"} onClick={handleAddSectionButton}>Add subsection</button>
+            <img src={addButton} className={"add-subsection"} onClick={handleAddSectionButton}/>
         </section>
     )
 }
