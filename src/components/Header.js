@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../assets/images/photo-placeholder.jpg"
+import Picture from "./Picture";
 import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
 import EditableText from "./EditableText";
@@ -65,10 +65,7 @@ export default function Header(props) {
         <div className="header">
             <EditableText type={"text"} placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
                           text={fullName}/>
-            <label form="image">
-                <input type="file" name="image" style={{display: "none"}}/>
-                <img className="profile-picture" src={Image} alt={"person"}/>
-            </label>
+            <Picture/>
             <div className={"personal-information"}>
                 {informationArray}
                 <img className="add-button" onClick={handleAddButton} src={addButton} alt={"add button"}/>
