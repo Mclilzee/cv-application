@@ -75,16 +75,12 @@ export default function Section(props) {
         />
     })
 
-    const deleteButtonStyle = {
-        visibility: displayDeleteSectionButton ? "" : "hidden"
-    }
 
     return (
         <section>
             <div onMouseOver={handleMouseOverEvent} onMouseOut={handleMouseOutEvent} className={"title-container"}>
                 <img onClick={handleDeleteButtonClick}
-                     style={deleteButtonStyle}
-                     className={"delete-button"}
+                     className={`delete-button ${displayDeleteSectionButton ? "visible" : "hidden"}`}
                      src={deleteButton}
                      alt={"delete button"}
                 />

@@ -57,13 +57,21 @@ export default function Header(props) {
     }
 
     const informationArray = personalData.map((item, index) => {
-        return <PersonalDetail key={index} onDelete={onDelete} index={index} title={item.title} detail={item.detail}
-                               onChange={handleInformationChange}/>
+        return <PersonalDetail key={index}
+                               onDelete={onDelete}
+                               index={index}
+                               title={item.title}
+                               detail={item.detail}
+                               onChange={handleInformationChange}
+        />
     })
 
     return (
         <div className="header">
-            <EditableText type={"text"} placeholder={"Full Name"} onChange={handleNameChange} className="fullName"
+            <EditableText type={"text"}
+                          placeholder={"Full Name"}
+                          onChange={handleNameChange}
+                          className="fullName"
                           text={fullName}/>
             <Picture />
             <div className={"personal-information"}>

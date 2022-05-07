@@ -22,16 +22,11 @@ export default function SubSection(props) {
         props.onDelete(props.index);
     }
 
-    const deleteButtonStyling = {
-        visibility: displayButton ? "" : "hidden"
-    }
-
     return (
         <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className={"subsection-container"}>
             <img
-                style={deleteButtonStyling}
                 onClick={handleDeleteButtonClick}
-                className={"delete-button"}
+                className={`delete-button ${displayButton ? "visible" : "hidden"}`}
                 src={deleteButton}
                 alt={"delete button"}
             />

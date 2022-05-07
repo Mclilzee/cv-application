@@ -70,8 +70,8 @@ form {
     align-items: center;
     gap: 20px;
     background-color: #9e4cd9;
-    width: 40vw;
-    height: 25vh;
+    width: min(400px, 70vw);
+    max-height: 250px;
     padding: 20px;
     box-shadow: 2px 2px 10px 2px black;
     border-radius: 20px;
@@ -110,12 +110,14 @@ form > button {
     font-family: Inter, serif;
     color: #000000;
     font-weight: bold;
+    font-size: min(0.8rem, 4vw);
 }
 
 form > a {
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: lawngreen;
+    text-align: center;
 }
 
 form > a:hover {
@@ -300,12 +302,32 @@ img:hover:not(.profile-picture, .download-button > img) {
     width: 25px;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+
 @media (max-width: 500px) {
+
+    .hidden {
+        visibility: visible;
+    }
+
     body {
         padding: 0;
     }
 
+    #root {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+
     .page {
+        width: 100vw;
         padding: 10px;
     }
 
@@ -353,6 +375,10 @@ img:hover:not(.profile-picture, .download-button > img) {
     .subsection-container > .title,
     .subsection-container > .detail {
         max-width: 120px;
+    }
+
+    section > .add-subsection {
+        margin: 0;
     }
 }
 

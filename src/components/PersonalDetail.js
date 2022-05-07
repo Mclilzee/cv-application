@@ -22,14 +22,10 @@ export default function PersonalDetail(props) {
         props.onDelete(props.index);
     }
 
-    const style = {
-        visibility: displayButton ? "visible" : "hidden"
-    }
-
     return (
         <div onMouseOver={handleMouseEnter} onMouseOut={handleMouseOut}
              className={"personal-detail"}>
-            <img className="delete-button" onClick={handleDelete} style={style} src={deleteButton} alt="delete button"/>
+            <img className={`delete-button ${displayButton ? "visible" : "hidden"}`} onClick={handleDelete} src={deleteButton} alt="delete button"/>
             <EditableText type={"text"} placeholder={"Title"} onChange={handleChange} className={"title"} text={props.title}/>
             <EditableText type={"text"} placeholder={"Detail"} onChange={handleChange} className={"detail"} text={props.detail}/>
         </div>
