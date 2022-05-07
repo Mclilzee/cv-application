@@ -6,7 +6,7 @@ export default function EditableText(props) {
     const [containsText, setContainsText] = React.useState(() => false);
 
     React.useEffect(() => {
-        setContainsText(props.text.length > 0);
+        setContainsText(props.text.match(/\S/gm));
     }, [props.text])
 
     function handleClick() {
@@ -24,7 +24,7 @@ export default function EditableText(props) {
     function getInputType() {
         if (notSelected) {
             return <div style={style} onClick={handleClick} onBlur={handleBlur}
-                        className={props.className}>{props.text.length > 0 ? props.text : props.placeholder}</div>;
+                        className={props.className}>{containsText ? props.text : props.placeholder}</div>;
         } else if (props.type === "textarea") {
             return <textarea
                 autoFocus={true}

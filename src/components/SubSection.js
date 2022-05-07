@@ -4,6 +4,16 @@ import deleteButton from "../assets/buttons/delete-button.svg"
 
 export default function SubSection(props) {
 
+    const [displayButton, setDisplayButton] = React.useState(() => false);
+
+    function handleMouseOver() {
+        setDisplayButton(true)
+    }
+
+    function handleMouseOut() {
+        setDisplayButton(false)
+    }
+
     function handleChange(event) {
         props.onChange(event, props.index);
     }
@@ -12,12 +22,22 @@ export default function SubSection(props) {
         props.onDelete(props.index);
     }
 
+    const deleteButtonStyling = {
+        visibility: displayButton ? "" : "hidden"
+    }
+
     return (
-        <div className={"subsection-container"}>
-            <img onClick={handleDeleteButtonClick} className={"delete-button"} src={deleteButton}
-                 alt={"delete button"}/>
-            <EditableText type={"text"} placeholder="Date Information" onChange={handleChange} className={"date"} text={props.date}/>
-            <EditableText type={"text"} placeholder="Title Information" onChange={handleChange} className={"title"}
+        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} className={"subsection-container"}>
+            <img
+                style={deleteButtonStyling}
+                onClick={handleDeleteButtonClick}
+                className={"delete-button"}
+                src={deleteButton}
+                alt={"delete button"}
+            />
+            <EditableText type={"text"} placeholder="Date" onChange={handleChange} className={"date"}
+                          text={props.date}/>
+            <EditableText type={"text"} placeholder="Title" onChange={handleChange} className={"title"}
                           text={props.title}/>
             <EditableText type={"textarea"} placeholder="Explain in details" onChange={handleChange}
                           className={"detail"}

@@ -32,9 +32,9 @@ export default function Section(props) {
     function handleAddSectionButton() {
         setSubsectionsArray(prevState => {
             const newObject = {
-                date: "112 - 2016",
-                title: "war",
-                detail: "staying at home"
+                date: "",
+                title: "",
+                detail: ""
             }
             return [...prevState, newObject]
         })
@@ -81,9 +81,16 @@ export default function Section(props) {
     return (
         <section>
             <div onMouseOver={handleMouseOverEvent} onMouseOut={handleMouseOutEvent} className={"title-container"}>
-                <img onClick={handleDeleteButtonClick} style={deleteButtonStyle} className={"delete-button"}
-                     src={deleteButton} alt={"delete button"}/>
-                <EditableText type={"text"} placeholder={"Header"} className={"title"} onChange={handleSectionTitleChange}
+                <img onClick={handleDeleteButtonClick}
+                     style={deleteButtonStyle}
+                     className={"delete-button"}
+                     src={deleteButton}
+                     alt={"delete button"}
+                />
+                <EditableText type={"text"}
+                              placeholder={"Header"}
+                              className={"title"}
+                              onChange={handleSectionTitleChange}
                               text={props.text}/>
             </div>
             {subSectionsData}

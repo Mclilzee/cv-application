@@ -145,6 +145,7 @@ section {
     grid-template-columns: auto 200px 1fr;
     align-items: center;
     gap: 5px;
+    padding-left: 30px;
 }
 
 .subsection-container > .delete-button {
@@ -155,6 +156,14 @@ section {
 .subsection-container > .detail {
     grid-column: 3;
     max-width: 80%;
+    resize: vertical;
+}
+
+.subsection-container > .date {
+    font-family: Inter, serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 
