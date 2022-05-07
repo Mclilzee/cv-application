@@ -1,6 +1,7 @@
 import Header from "./components/Header"
 import React from "react";
 import Main from "./components/Main";
+import placeHolderImage from "./assets/images/photo-placeholder.jpg"
 
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
 
     return (
         <div className="paper">
-            <Header/>
+            <Header imageURL={placeHolderImage}/>
             <Main/>
         </div>
     );

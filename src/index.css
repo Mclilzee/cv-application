@@ -43,11 +43,15 @@ code {
     grid-column: 2;
     grid-row: span 2;
     max-width: 100%;
+    border-radius: 8px;
 }
 
-.profile-picture > img {
-    max-width: 100%;
-    border-radius: 8px;
+.picture-container > form {
+    position: fixed;
+    border: solid red;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
 }
 
 .fullName {

@@ -1,6 +1,7 @@
 import React from "react";
 import Section from "./Section";
 
+
 export default function Main(props) {
 
     const [sectionsArray, setSectionsArray] = React.useState(() => {
