@@ -36,6 +36,7 @@ function App() {
 
     return (
         <div className="paper">
+            <button className={"download-button"} onClick={() => window.print()}>Download</button>
             <Header/>
             <Main/>
         </div>

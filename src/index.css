@@ -4,7 +4,6 @@
 }
 
 body {
-    height: 100%;
     margin: 0;
     background-color: #775A9C;
     display: flex;
@@ -23,7 +22,7 @@ code {
 
 #root {
     background-color: white;
-    min-height: 985px;
+    min-height: 880px;
 }
 
 .paper {
@@ -220,6 +219,7 @@ section {
     font-family: Inter, serif;
     font-size: 1.2rem;
     font-weight: bold;
+    margin-top: 20px;
 }
 
 .subsection-container {
@@ -260,7 +260,6 @@ section > .add-subsection {
     cursor: pointer;
     max-width: 15px;
     margin-left: 50px;
-    margin-bottom: 20px;
 }
 
 .add-section {
@@ -290,8 +289,14 @@ img:hover:not(.profile-picture) {
         visibility: hidden;
     }
 
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
     @page {
-        size: A4;
+        margin: 0;
+        padding: 0;
     }
 }
 
