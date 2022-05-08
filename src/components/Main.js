@@ -9,9 +9,9 @@ export default function Main(props) {
             header: "Education",
             subsections: [
                 {
-                    date: "",
-                    title: "",
-                    detail: ""
+                    date: "2015 - 2016",
+                    title: "Highschool",
+                    detail: "Finished highschool degree with the score of 90%"
                 }
             ]
         }]
@@ -62,10 +62,46 @@ export default function Main(props) {
         })
     }
 
+    function handleSubsectionChange(event, sectionIndex, subsectionIndex) {
+        const type = event.target.className;
+        const text = event.target.value;
+
+        setSectionsArray(prevState => {
+            return prevState.map((item, itemIndex) => {
+                return itemIndex !== sectionIndex ? item :
+                    {
+                        ...item, subsections: item.subsections.map((subsectionItem, index) => {
+                            return subsectionIndex === index ? {...subsectionItem, [type]: text} : subsectionItem
+                        })
+                    }
+            })
+        })
+    }
+
+    function handleSubSectionDeleteButton(sectionIndex, subsectionIndex) {
+        setSectionsArray(prevState => {
+            return prevState.map((item, itemIndex) => {
+                return sectionIndex !== itemIndex ? item :
+                    {
+                        ...item, subsections: item.subsections.filter((sub, subIndex) => {
+                            return subIndex !== subsectionIndex
+                        })
+                    }
+            })
+        })
+    }
+
     const sectionsData = sectionsArray.map((item, index) => {
-        return <Section addSubsection={handleAddSubsectionButton} onDeleteButtonClick={handleSectionDeleteButton}
-                        onChange={handleSectionNameChange} key={index}
-                        index={index} text={item.header} subsections={item.subsections}/>
+        return <Section addSubsection={handleAddSubsectionButton}
+                        onSubsectionDelete={handleSubSectionDeleteButton}
+                        onSubsectionChange={handleSubsectionChange}
+                        onDeleteButtonClick={handleSectionDeleteButton}
+                        onChange={handleSectionNameChange}
+                        key={index}
+                        index={index}
+                        text={item.header}
+                        subsections={item.subsections}
+        />
     })
 
     return (

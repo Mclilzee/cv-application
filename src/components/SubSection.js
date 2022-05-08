@@ -3,7 +3,6 @@ import EditableText from "./EditableText";
 import deleteButton from "../assets/buttons/delete-button.svg"
 
 export default function SubSection(props) {
-
     const [displayButton, setDisplayButton] = React.useState(() => false);
 
     function handleMouseOver() {
@@ -15,11 +14,11 @@ export default function SubSection(props) {
     }
 
     function handleChange(event) {
-        props.onChange(event, props.index);
+        props.onChange(event, props.sectionIndex, props.index);
     }
 
     function handleDeleteButtonClick() {
-        props.onDelete(props.index);
+        props.onDelete(props.sectionIndex, props.index);
     }
 
     return (

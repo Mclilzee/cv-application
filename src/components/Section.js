@@ -28,25 +28,16 @@ export default function Section(props) {
         props.onChange(event, props.index);
     }
 
-    function handleSubsectionChange(event, index) {
-        const type = event.target.className;
-        const text = event.target.value;
-
-
-    }
-
-    function handleSubSectionDeleteButton(index) {
-
-    }
 
     const subSectionsData = props.subsections.map((item, index) => {
-        return <SubSection onDelete={handleSubSectionDeleteButton}
-                           onChange={handleSubsectionChange}
+        return <SubSection onDelete={props.onSubsectionDelete}
+                           onChange={props.onSubsectionChange}
                            key={index}
                            index={index}
                            date={item.date}
                            title={item.title}
                            detail={item.detail}
+                           sectionIndex={props.index}
         />
     })
 
