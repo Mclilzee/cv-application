@@ -22,7 +22,7 @@ export default function Main(props) {
         setSectionsArray(prevState => {
             return [...prevState, {
                 header: "",
-                subsection: [{
+                subsections: [{
                     date: "",
                     title: "",
                     detail: "",
@@ -48,8 +48,23 @@ export default function Main(props) {
         })
     }
 
+    function handleAddSubsectionButton(index) {
+        setSectionsArray(prevState => {
+            return prevState.map((item, itemIndex) => {
+                return index === itemIndex ? {
+                    ...item, subsections: [...item.subsections, {
+                        date: "",
+                        title: "",
+                        detail: "",
+                    }]
+                } : item
+            })
+        })
+    }
+
     const sectionsData = sectionsArray.map((item, index) => {
-        return <Section onDeleteButtonClick={handleSectionDeleteButton} onChange={handleSectionNameChange} key={index}
+        return <Section addSubsection={handleAddSubsectionButton} onDeleteButtonClick={handleSectionDeleteButton}
+                        onChange={handleSectionNameChange} key={index}
                         index={index} text={item.header} subsections={item.subsections}/>
     })
 

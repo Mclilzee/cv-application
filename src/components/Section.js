@@ -6,16 +6,6 @@ import addButton from "../assets/buttons/add-button.svg"
 
 export default function Section(props) {
 
-    const [subSectionsArray, setSubsectionsArray] = React.useState(() => {
-        return [
-            {
-                date: "",
-                title: "",
-                detail: ""
-            }
-        ]
-    })
-
     const [displayDeleteSectionButton, setDisplayDeleteSectionButton] = React.useState(() => false);
 
     function handleMouseOverEvent() {
@@ -30,15 +20,8 @@ export default function Section(props) {
         props.onDeleteButtonClick(props.index);
     }
 
-    function handleAddSectionButton() {
-        setSubsectionsArray(prevState => {
-            const newObject = {
-                date: "",
-                title: "",
-                detail: ""
-            }
-            return [...prevState, newObject]
-        })
+    function handleAddSubsectionButton() {
+        props.addSubsection(props.index)
     }
 
     function handleSectionTitleChange(event) {
@@ -49,22 +32,14 @@ export default function Section(props) {
         const type = event.target.className;
         const text = event.target.value;
 
-        setSubsectionsArray(prevState => {
-            return prevState.map((item, itemIndex) => {
-                return index === itemIndex ? {...item, [type]: text} : item;
-            })
-        })
+
     }
 
     function handleSubSectionDeleteButton(index) {
-        setSubsectionsArray(prevState => {
-            return prevState.filter((item, itemIndex) => {
-                return index !== itemIndex;
-            })
-        })
+
     }
 
-    const subSectionsData = subSectionsArray.map((item, index) => {
+    const subSectionsData = props.subsections.map((item, index) => {
         return <SubSection onDelete={handleSubSectionDeleteButton}
                            onChange={handleSubsectionChange}
                            key={index}
@@ -92,7 +67,7 @@ export default function Section(props) {
             </div>
             {subSectionsData}
             <img src={addButton} className={"add-subsection"} alt="add subsection button"
-                 onClick={handleAddSectionButton}/>
+                 onClick={handleAddSubsectionButton}/>
         </section>
     )
 }
