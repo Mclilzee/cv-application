@@ -6,7 +6,10 @@ import Picture from "./Picture";
 
 export default function Header(props) {
 
-    const [fullName, setFullName] = React.useState(() => localStorage.getItem("fullName"));
+    const [fullName, setFullName] = React.useState(() => {
+            return localStorage.getItem("fullName") || "";
+        }
+    );
     const [personalData, setPersonalData] = React.useState(getPersonalData);
 
     function getPersonalData() {

@@ -11,7 +11,7 @@ function App() {
 
     function getCurrentDate() {
         const today = new Date();
-        return format(today, "dd/MM/yyyy")
+        return format(today, "dd/MM/yyyy") || "";
     }
 
     React.useEffect(() => {
