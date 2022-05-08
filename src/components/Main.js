@@ -5,13 +5,29 @@ import Section from "./Section";
 export default function Main(props) {
 
     const [sectionsArray, setSectionsArray] = React.useState(() => {
-        return ["Education"]
+        return [{
+            header: "Education",
+            subsections: [
+                {
+                    date: "",
+                    title: "",
+                    detail: ""
+                }
+            ]
+        }]
     });
 
 
     function handleAddSectionButton() {
         setSectionsArray(prevState => {
-            return [...prevState, ""]
+            return [...prevState, {
+                header: "",
+                subsection: [{
+                    date: "",
+                    title: "",
+                    detail: "",
+                }]
+            }]
         })
     }
 
@@ -19,7 +35,7 @@ export default function Main(props) {
         const text = event.target.value;
         setSectionsArray(prevState => {
             return prevState.map((item, itemIndex) => {
-                return index === itemIndex ? text : item;
+                return index === itemIndex ? {...item, header: text} : item;
             })
         })
     }
@@ -34,7 +50,7 @@ export default function Main(props) {
 
     const sectionsData = sectionsArray.map((item, index) => {
         return <Section onDeleteButtonClick={handleSectionDeleteButton} onChange={handleSectionNameChange} key={index}
-                        index={index} text={item}/>
+                        index={index} text={item.header} subsections={item.subsections}/>
     })
 
     return (
