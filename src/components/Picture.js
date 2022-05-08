@@ -5,9 +5,15 @@ import closeButton from "../assets/buttons/close-button.svg"
 
 export default function Picture(props) {
 
-    const [profilePicture, setProfilePicture] = React.useState(() => placeHolderImage)
+    const [profilePicture, setProfilePicture] = React.useState(() => {
+      return placeHolderImage
+    })
     const [pasteImageUrlMessage, setPasteImageUrlMessage] = React.useState(() => "Paste Image URL");
     const [showForm, setShowForm] = React.useState(() => false);
+
+    React.useEffect(() => {
+        localStorage.setItem("profilePicture", profilePicture);
+    }, [profilePicture])
 
     function chooseImageURL(event) {
         event.preventDefault()
@@ -41,7 +47,7 @@ export default function Picture(props) {
                         <img src={closeButton} alt={"close form button"} onClick={handleCloseFormButton}
                              className={"close-button"}/>
                         <label form={"url-input"}>{pasteImageUrlMessage}</label>
-                        <input placeholder={"Example: https//i.imgur.com/example.jpeg"} id="url-input" type="url"
+                        <input placeholder={"https//i.imgur.com/example.jpeg"} id="url-input" type="url"
                                name="url"/>
                         <button type="submit">Select</button>
                         <a href={"https://imgur.com/upload"} target={"_blank"} rel="noreferrer">Upload using Imgur</a>

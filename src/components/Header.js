@@ -38,6 +38,10 @@ export default function Header(props) {
         localStorage.setItem("personalData", jsonString);
     }, [personalData])
 
+    React.useEffect(() => {
+        localStorage.setItem("fullName", fullName);
+    }, [fullName])
+
     function handleNameChange(event) {
         let newName = event.target.value;
         setFullName(newName)
