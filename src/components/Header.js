@@ -6,21 +6,37 @@ import Picture from "./Picture";
 
 export default function Header(props) {
 
-    const [fullName, setFullName] = React.useState(() => "");
-    const [personalData, setPersonalData] = React.useState(() => [
-        {
-            title: "Address :",
-            detail: "Berlin Str. 221",
-        },
-        {
-            title: "Phone :",
-            detail: "+49 153 232212"
-        },
-        {
-            title: "E-mail :",
-            detail: "example@hotmail.com"
+    const [fullName, setFullName] = React.useState(() => localStorage.getItem("fullName"));
+    const [personalData, setPersonalData] = React.useState(getPersonalData);
+
+    function getPersonalData() {
+        const localObject = JSON.parse(localStorage.getItem("personalData"));
+
+        if (localObject !== null) {
+            return localObject;
         }
-    ]);
+
+        return [
+            {
+                title: "Address :",
+                detail: "Berlin Str. 221",
+            },
+            {
+                title: "Phone :",
+                detail: "+49 153 232212"
+            },
+            {
+                title: "E-mail :",
+                detail: "example@hotmail.com"
+            }
+        ]
+
+    }
+
+    React.useEffect(() => {
+        const jsonString = JSON.stringify(personalData);
+        localStorage.setItem("personalData", jsonString);
+    }, [personalData])
 
     function handleNameChange(event) {
         let newName = event.target.value;
