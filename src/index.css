@@ -25,7 +25,7 @@ code {
 }
 
 .paper {
-    padding: 30px;
+    padding: 15px 30px;
     min-height: 890px;
     display: flex;
     flex-direction: column;
@@ -164,10 +164,7 @@ form > a:hover {
     line-height: 18px;
     letter-spacing: 0.03rem;
     overflow-wrap: break-word;
-}
-
-.personal-detail > input {
-    max-width: 150px;
+    width: 180px;
 }
 
 .personal-detail > .delete-button {
