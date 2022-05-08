@@ -5,7 +5,7 @@ import Section from "./Section";
 export default function Main(props) {
 
     const [sectionsArray, setSectionsArray] = React.useState(() => {
-        return [{
+        return JSON.parse(localStorage.getItem("main")) || [{
             header: "Education",
             subsections: [
                 {
@@ -16,6 +16,14 @@ export default function Main(props) {
             ]
         }]
     });
+
+    React.useEffect(() => {
+
+        const jsonString = JSON.stringify(sectionsArray)
+        localStorage.setItem("main", jsonString);
+
+
+    }, [sectionsArray])
 
 
     function handleAddSectionButton() {

@@ -73,7 +73,7 @@ export default function Header(props) {
                           onChange={handleNameChange}
                           className="fullName"
                           text={fullName}/>
-            <Picture />
+            <Picture/>
             <div className={"personal-information"}>
                 {informationArray}
                 <img className="add-button" onClick={handleAddButton} src={addButton} alt={"add button"}/>
