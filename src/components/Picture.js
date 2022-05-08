@@ -6,7 +6,7 @@ import closeButton from "../assets/buttons/close-button.svg"
 export default function Picture(props) {
 
     const [profilePicture, setProfilePicture] = React.useState(() => {
-      return placeHolderImage
+      return localStorage.getItem("profilePicture") || placeHolderImage
     })
     const [pasteImageUrlMessage, setPasteImageUrlMessage] = React.useState(() => "Paste Image URL");
     const [showForm, setShowForm] = React.useState(() => false);

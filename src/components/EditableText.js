@@ -32,7 +32,8 @@ export default function EditableText(props) {
                 onBlur={handleBlur}
                 className={props.className}
                 value={props.text}
-                placeholder={props.placeholder ? props.placeholder : ""}/>;
+                placeholder={props.placeholder ? props.placeholder : ""}
+            />;
         } else {
             return <input
                 autoFocus={true}
@@ -41,7 +42,8 @@ export default function EditableText(props) {
                 className={props.className}
                 type={props.type}
                 value={props.text}
-                placeholder={props.placeholder ? props.placeholder : ""}/>;
+                placeholder={props.placeholder ? props.placeholder : ""}
+            />;
         }
     }
 
