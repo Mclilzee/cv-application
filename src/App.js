@@ -3,7 +3,6 @@ import React from "react";
 import Main from "./components/Main";
 import pdfIcon from "./assets/images/pdf-icon.svg"
 import EditableText from "./components/EditableText";
-import {format} from "date-fns"
 
 function App() {
 
@@ -11,7 +10,12 @@ function App() {
 
     function getCurrentDate() {
         const today = new Date();
-        return format(today, "dd/MM/yyyy") || "";
+        return today.toLocaleDateString(undefined, {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        })
     }
 
     React.useEffect(() => {
