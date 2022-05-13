@@ -24,7 +24,7 @@ export default function EditableText(props) {
     function getInputType() {
         if (notSelected) {
             return <div style={style} onClick={handleClick} onBlur={handleBlur}
-                        className={props.className}>{containsText ? props.text : props.placeholder}</div>;
+                        className={props.className + " text-div"}>{containsText ? props.text : props.placeholder}</div>;
         } else if (props.type === "textarea") {
             return <textarea
                 autoFocus={true}

@@ -24,6 +24,10 @@ code {
     background-color: white;
 }
 
+.text-div:hover {
+    background-color: red;
+}
+
 .paper {
     padding: 15px 30px;
     min-height: 890px;
@@ -34,7 +38,7 @@ code {
 .header {
     margin-bottom: 10px;
     display: grid;
-    grid-template: auto 1fr 10px / 1fr 1fr;
+    grid-template: auto 1fr 10px / 10fr 8fr;
     justify-content: space-between;
 }
 
@@ -155,6 +159,7 @@ form > a:hover {
 .personal-detail {
     display: grid;
     grid-template: 1fr / 12px 110px 1fr;
+    gap: 5px;
 }
 
 .personal-detail > .detail,
@@ -164,7 +169,6 @@ form > a:hover {
     line-height: 18px;
     letter-spacing: 0.03rem;
     overflow-wrap: break-word;
-    width: 180px;
 }
 
 .personal-detail > .delete-button {
@@ -173,15 +177,14 @@ form > a:hover {
     max-width: 100%;
 }
 
-.personal-detail > .detail {
-    margin-right: 2px;
-}
-
 .personal-detail > .title {
     margin-right: 10px;
     margin-left: 3px;
 }
 
+.personal-detail > .detail {
+    margin-right: 2px;
+}
 
 .header > .line-break {
     grid-column: span 2;
