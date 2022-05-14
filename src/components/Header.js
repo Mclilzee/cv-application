@@ -3,6 +3,7 @@ import PersonalDetail from "./PersonalDetail";
 import addButton from "../assets/buttons/add-button.svg"
 import EditableText from "./EditableText";
 import Picture from "./Picture";
+import uniqid from "uniqid"
 
 export default function Header(props) {
 
@@ -23,14 +24,17 @@ export default function Header(props) {
             {
                 title: "Address :",
                 detail: "Berlin Str. 221",
+                id: uniqid()
             },
             {
                 title: "Phone :",
-                detail: "+49 153 232212"
+                detail: "+49 153 232212",
+                id: uniqid()
             },
             {
                 title: "E-mail :",
-                detail: "example@hotmail.com"
+                detail: "example@hotmail.com",
+                id: uniqid()
             }
         ]
 
@@ -62,10 +66,10 @@ export default function Header(props) {
         })
     }
 
-    function onDelete(index) {
+    function onDelete(id) {
         setPersonalData(prevData => {
-            return prevData.filter((item, itemIndex) => {
-                return index !== itemIndex;
+            return prevData.filter(item => {
+                return id !== item.id;
             })
         })
     }
@@ -73,16 +77,17 @@ export default function Header(props) {
     function handleAddButton() {
         const newInformation = {
             title: "",
-            detail: ""
+            detail: "",
+            id: uniqid()
         }
 
         setPersonalData(prevState => [...prevState, newInformation])
     }
 
-    const informationArray = personalData.map((item, index) => {
-        return <PersonalDetail key={index}
+    const informationArray = personalData.map(item => {
+        return <PersonalDetail key={item.id}
+                               id={item.id}
                                onDelete={onDelete}
-                               index={index}
                                title={item.title}
                                detail={item.detail}
                                onChange={handleInformationChange}
