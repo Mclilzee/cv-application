@@ -54,13 +54,13 @@ export default function Header(props) {
         setFullName(newName)
     }
 
-    function handleInformationChange(event, index) {
+    function handleInformationChange(event, id) {
         const text = event.target.value;
         const type = event.target.className;
 
         setPersonalData(prevData => {
-            return prevData.map((item, itemIndex) => {
-                return itemIndex === index ? {...item, [type]: text} :
+            return prevData.map(item => {
+                return item.id === id ? {...item, [type]: text} :
                     {...item}
             })
         })

@@ -17,27 +17,27 @@ export default function Section(props) {
     }
 
     function handleDeleteButtonClick() {
-        props.onDeleteButtonClick(props.index);
+        props.onDeleteButtonClick(props.id);
     }
 
     function handleAddSubsectionButton() {
-        props.addSubsection(props.index)
+        props.addSubsection(props.id)
     }
 
     function handleSectionTitleChange(event) {
-        props.onChange(event, props.index);
+        props.onChange(event, props.id);
     }
 
 
-    const subSectionsData = props.subsections.map((item, index) => {
+    const subSectionsData = props.subsections.map(item => {
         return <SubSection onDelete={props.onSubsectionDelete}
                            onChange={props.onSubsectionChange}
-                           key={index}
-                           index={index}
+                           key={item.id}
+                           id={item.id}
                            date={item.date}
                            title={item.title}
                            detail={item.detail}
-                           sectionIndex={props.index}
+                           sectionID={props.id}
         />
     })
 

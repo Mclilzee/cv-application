@@ -14,11 +14,11 @@ export default function SubSection(props) {
     }
 
     function handleChange(event) {
-        props.onChange(event, props.sectionIndex, props.index);
+        props.onChange(event, props.sectionID, props.id);
     }
 
     function handleDeleteButtonClick() {
-        props.onDelete(props.sectionIndex, props.index);
+        props.onDelete(props.sectionID, props.id);
     }
 
     return (

@@ -7,7 +7,7 @@ export default function PersonalDetail(props) {
     const [displayButton, setDisplayButton] = React.useState(false);
 
     function handleChange(event) {
-        props.onChange(event, props.index);
+        props.onChange(event, props.id);
     }
 
     function handleMouseEnter() {
@@ -19,7 +19,7 @@ export default function PersonalDetail(props) {
     }
 
     function handleDelete() {
-        props.onDelete(props.index);
+        props.onDelete(props.id);
     }
 
     return (
