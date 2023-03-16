@@ -24,9 +24,6 @@ You will see more indepth detailed showcase in the examples bellow.
 ### Adding iniformation in sections
 <img src="./examples/adding-section-information.gif" />
 
-### Remove information in sections
-<img src="./examples/removing-section-information.gif" />
-
 ### Changing profile photo
 <img src="./examples/changing-profile-picture.gif" />
 
@@ -39,3 +36,6 @@ You will see more indepth detailed showcase in the examples bellow.
 
 ### Profile Photo
 <a href="https://unsplash.com/@sspaula?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sergio de Paula</a> on <a href="https://unsplash.com/s/photos/person?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+### Image uploadinig service
+<a href="https://imgur.com/upload">Imgur</a>
